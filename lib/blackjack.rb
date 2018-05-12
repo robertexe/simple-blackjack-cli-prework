@@ -23,7 +23,10 @@ def end_game(card_total)
 end
 
 def initial_round
-  card_total = deal_card + deal_card
+  card_one = deal_card
+  card_two = deal_card
+  puts "#{card_one} and #{card_two} -----------"
+  card_total = card_one + card_two
   display_card_total(card_total)
   return card_total
 end
@@ -32,12 +35,18 @@ def hit?(card_total)
   prompt_user
   action = get_user_input
   case action
+  when 's'
+    ##
+    return card_total
   when 'h'
-    card_total += deal_card
+    another_card = deal_card
+    puts "handing out #{another_card}"
+    card_total += another_card
     display_card_total(card_total)
     return card_total
   else
     invalid_command
+    return card_total
   end
 end
 
@@ -53,8 +62,8 @@ end
 def runner
   welcome
   sum = initial_round
-  until sum > 21
-    hit?(sum)
+  until sum > 21 do
+    sum = hit?(sum)
   end
-  return end_game
+  end_game(sum)
 end
