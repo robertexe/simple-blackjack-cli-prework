@@ -40,7 +40,7 @@ def hit?(card_total)
     return card_total
   when 'h'
     another_card = deal_card
-    puts "handing out #{another_card}"
+    ##puts "handing out #{another_card}"
     card_total += another_card
     display_card_total(card_total)
     return card_total
