@@ -58,5 +58,3 @@ def runner
   end
   return end_game
 end
-
-runner
